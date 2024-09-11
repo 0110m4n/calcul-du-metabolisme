@@ -6,7 +6,7 @@ def BRM_homme():
     age_homme = int(input("veuillez entrer votre age : \n"))
     # Calcul du BRM selon la formule de Harris-Benedict pour les hommes
     BRM = 66 + 13.7 * poids_en_kilos_homme + 5 * hauteur_en_centimetre_homme - 6.8 * age_homme
-    print(f"votre BRM est de {BRM}\n")
+    print(f"votre BRM est de {BRM:.2f}\n")
     return BRM
 
 # Fonction pour calculer le BRMa (BRM ajusté par le niveau d'activité) pour les hommes
@@ -41,7 +41,7 @@ def BRMa_homme(a):
     # Calcul du BRMa en multipliant le BRM par le coefficient d'activité
     BRMa = a * Niveau_activite
     BRMa = float(BRMa)
-    print(f"votre BRMa est de {BRMa}\n")
+    print(f"votre BRMa est de {BRMa:.2f}\n")
     return BRMa
 
 # Fonction pour ajuster le BRMa en fonction de l'objectif (maigrir ou grossir) pour les hommes
@@ -53,11 +53,11 @@ def objectif_homme(a):
         # Calcul du métabolisme ajusté pour maigrir
         if souhait == "maigrir":
             calcul_final = a - a * 10 / 100
-            print(f"{calcul_final} est votre metablisme de base pour maigrir doucement et sainement \n")
+            print(f"{calcul_final:.2f} est votre metablisme de base pour maigrir doucement et sainement \n")
         # Calcul du métabolisme ajusté pour grossir
         elif souhait == "grossir":
             calcul_final = a + a * 10 / 100
-            print(f"{calcul_final} est votre metablisme de base pour grossir doucement et sainement \n")
+            print(f"{calcul_final:.2f} est votre metablisme de base pour grossir doucement et sainement \n")
         else:
             print("Veuillez entrer un souhait valide (maigrir ou grossir) :\n")
     return souhait
@@ -68,7 +68,7 @@ def BRM_femme():
     hauteur_en_centimetre_femme = int(input("veuillez entrer votre taille en centimétres : \n"))
     age_femme = int(input("veuillez entrer votre age : \n"))
     BRM = 655 + 9.6 * poids_en_kilos_femme + 1.7 * hauteur_en_centimetre_femme - 4.7 * age_femme
-    print(f"votre BRM est de {BRM}\n")
+    print(f"votre BRM est de {BRM:.2f}\n")
     return BRM
 
 # Fonction pour calculer le BRMa pour les femmes (même logique que pour les hommes)
@@ -96,7 +96,7 @@ def BRMa_femme(a):
         print("Veuillez entrer un chiffre valide entre 1 et 6")
     BRMa = a * Niveau_activite
     BRMa = float(BRMa)
-    print(f"votre BRMa est de {BRMa}")
+    print(f"votre BRMa est de {BRMa:.2f}")
     return BRMa
 
 # Fonction pour ajuster le BRMa en fonction de l'objectif pour les femmes
@@ -106,10 +106,10 @@ def objectif_femme(a):
         souhait = input("souhaitez-vous maigrir ou grossir ? \n").lower()
         if souhait == "maigrir":
             calcul_final = a - a * 10 / 100
-            print(f"{calcul_final} est votre métabolisme de base pour maigrir doucement et sainement \n")
+            print(f"{calcul_final:.2f} est votre métabolisme de base pour maigrir doucement et sainement \n")
         elif souhait == "grossir":
             calcul_final = a + a * 10 / 100
-            print(f"{calcul_final} est votre métabolisme de base pour grossir doucement et sainement \n")
+            print(f"{calcul_final:.2f} est votre métabolisme de base pour grossir doucement et sainement \n")
         else:
             print("Veuillez entrer un souhait valide (maigrir ou grossir) :\n")
     return souhait
