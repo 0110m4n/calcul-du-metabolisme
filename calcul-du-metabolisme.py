@@ -11,38 +11,21 @@ def BRM_homme():
 
 # Fonction pour calculer le BRMa (BRM ajusté par le niveau d'activité) pour les hommes
 def BRMa_homme(a):
-    # Demande du niveau d'activité avec 6 options
-    Niveau_activite = int(input("Pour calculer votre BRMa (Nombre de calories par jour pour garder un poids constant) , veuillez entrer niveau d'activité : \n 5 choix possibles : \n sedentaire : choix 1\n Tres_faible_activite : choix 2 \n Activite_legere : choix 3 \n Activite_modere : choix 4 \n Haute_activite : choix 5 \n Activite_extreme : choix 6 \n"))
-    
-    # Définition des coefficients en fonction du niveau d'activité
-    sedentaire = 1
-    Tres_faible_activite = 1.2
-    Activite_legere = 1.4
-    Activite_modere = 1.6
-    Haute_activite = 1.8
-    Activite_extreme = 2
-    
-    # Ajustement du niveau d'activité selon l'entrée utilisateur
-    if Niveau_activite == 1:
-        Niveau_activite = sedentaire
-    elif Niveau_activite == 2:
-        Niveau_activite = Tres_faible_activite
-    elif Niveau_activite == 3:
-        Niveau_activite = Activite_legere
-    elif Niveau_activite == 4:
-        Niveau_activite = Activite_modere
-    elif Niveau_activite == 5:
-        Niveau_activite = Haute_activite
-    elif Niveau_activite == 6:
-        Niveau_activite = Activite_extreme
-    else:
-        print("Veuillez entrer un chiffre valide entre 1 et 6")
-    
-    # Calcul du BRMa en multipliant le BRM par le coefficient d'activité
+    Niveau_activite = int(input("Pour calculer votre BRMa (Nombre de calories par jour pour garder un poids constant) , veuillez entrer niveau d'activité :\n 5 choix possibles : \n sedentaire : choix 1\n Tres_faible_activite : choix 2 \n Activite_legere : choix 3 \n Activite_modere : choix 4 \n Haute_activite : choix 5 \n Activite_extreme : choix 6 \n"))
+    dict_niveau_activite = {
+        1 : 1,
+        2 : 1.2,
+        3 : 1.4,
+        4 : 1.6,
+        5 : 1.8,
+        6 : 2
+        }
+    Niveau_activite = dict_niveau_activite.get(Niveau_activite)
     BRMa = a * Niveau_activite
     BRMa = float(BRMa)
-    print(f"votre BRMa est de {BRMa:.2f}\n")
+    print(f"votre BRMa est de {BRMa:.2f}")
     return BRMa
+
 
 # Fonction pour ajuster le BRMa en fonction de l'objectif (maigrir ou grossir) pour les hommes
 def objectif_homme(a):
@@ -74,26 +57,15 @@ def BRM_femme():
 # Fonction pour calculer le BRMa pour les femmes (même logique que pour les hommes)
 def BRMa_femme(a):
     Niveau_activite = int(input("Pour calculer votre BRMa (Nombre de calories par jour pour garder un poids constant) , veuillez entrer niveau d'activité :\n 5 choix possibles : \n sedentaire : choix 1\n Tres_faible_activite : choix 2 \n Activite_legere : choix 3 \n Activite_modere : choix 4 \n Haute_activite : choix 5 \n Activite_extreme : choix 6 \n"))
-    sedentaire = 1
-    Tres_faible_activite = 1.2
-    Activite_legere = 1.4
-    Activite_modere = 1.6
-    Haute_activite = 1.8
-    Activite_extreme = 2
-    if Niveau_activite == 1:
-        Niveau_activite = sedentaire
-    elif Niveau_activite == 2:
-        Niveau_activite = Tres_faible_activite
-    elif Niveau_activite == 3:
-        Niveau_activite = Activite_legere
-    elif Niveau_activite == 4:
-        Niveau_activite = Activite_modere
-    elif Niveau_activite == 5:
-        Niveau_activite = Haute_activite
-    elif Niveau_activite == 6:
-        Niveau_activite = Activite_extreme
-    else:
-        print("Veuillez entrer un chiffre valide entre 1 et 6")
+    dict_niveau_activite = {
+        1 : 1,
+        2 : 1.2,
+        3 : 1.4,
+        4 : 1.6,
+        5 : 1.8,
+        6 : 2
+        }
+    Niveau_activite = dict_niveau_activite.get(Niveau_activite)
     BRMa = a * Niveau_activite
     BRMa = float(BRMa)
     print(f"votre BRMa est de {BRMa:.2f}")
@@ -131,4 +103,3 @@ while sexe != "homme" and sexe != "femme":
         objectif_femme(BRMa)
     else:
         print("Veuillez entrer un sexe valide (homme ou femme) :\n")
-
